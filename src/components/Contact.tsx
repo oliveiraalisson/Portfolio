@@ -1,4 +1,5 @@
-import { Mail, Linkedin, Github, Phone, MessageSquare } from "lucide-react"
+
+import { Mail, Linkedin, Github, Phone } from "lucide-react"
 import { SiKaggle } from "react-icons/si"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -49,7 +50,7 @@ export function Contact() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {contacts.map((contact, index) => (
               <Card 
                 key={index}
@@ -68,37 +69,6 @@ export function Contact() {
               </Card>
             ))}
           </div>
-
-          <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border-none backdrop-blur-sm">
-            <CardContent className="p-8 text-center">
-              <MessageSquare className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-bold mb-4">Pronto para começar um projeto?</h3>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Tenho experiência em diversos setores e estou pronto para ajudar 
-                sua empresa a extrair o máximo valor dos seus dados. Vamos criar 
-                algo incrível juntos!
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg"
-                  className="gradient-primary text-white hover:scale-105 transition-transform duration-300"
-                  onClick={() => window.open("mailto:alisson.oliveira@email.com", '_blank')}
-                >
-                  <Mail className="h-5 w-5 mr-2" />
-                  Enviar Email
-                </Button>
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  className="hover:scale-105 transition-transform duration-300"
-                  onClick={() => window.open("https://wa.me/5511999999999", '_blank')}
-                >
-                  <MessageSquare className="h-5 w-5 mr-2" />
-                  WhatsApp
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </section>

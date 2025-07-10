@@ -44,7 +44,7 @@ export function Projects() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <Card key={index} className="group hover:shadow-xl transition-all duration-500 hover:scale-105 border-none bg-card/50 backdrop-blur-sm overflow-hidden">
               <div className="relative">
@@ -88,20 +88,6 @@ export function Projects() {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="text-center">
-          <p className="text-muted-foreground mb-6">
-            Quer ver mais projetos ou discutir uma parceria?
-          </p>
-          <Button 
-            size="lg" 
-            variant="outline"
-            className="hover:scale-105 transition-transform duration-300"
-            onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            Entre em Contato
-          </Button>
         </div>
       </div>
     </section>
