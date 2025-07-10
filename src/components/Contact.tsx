@@ -1,5 +1,5 @@
 
-import { Mail, Linkedin, Github, Phone, MessageSquare } from "lucide-react"
+import { Mail, Linkedin, Github, BarChart3, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -27,11 +27,11 @@ export function Contact() {
       color: "text-gray-800 dark:text-gray-200"
     },
     {
-      icon: Notebook,
+      icon: BarChart3,
       label: "Kaggle",
       value: "/catinhu",
       href: "https://www.kaggle.com/catinhu",
-      color: "text-blue-200"
+      color: "text-cyan-400"
     }
   ]
 
