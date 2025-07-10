@@ -1,5 +1,6 @@
-
-import { Mail, Linkedin, Github, BarChart3, MessageSquare } from "lucide-react"
+npm install react-icons
+import { Mail, Linkedin, Github, Phone, MessageSquare } from "lucide-react"
+import { SiKaggle } from "react-icons/si"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -27,7 +28,7 @@ export function Contact() {
       color: "text-gray-800 dark:text-gray-200"
     },
     {
-      icon: BarChart3,
+      icon: SiKaggle,
       label: "Kaggle",
       value: "/catinhu",
       href: "https://www.kaggle.com/catinhu",
