@@ -32,7 +32,7 @@ export function Contact() {
       label: "Kaggle",
       value: "/catinhu",
       href: "https://www.kaggle.com/catinhu",
-      color: "text-cyan-400"
+      color: "text-[#21c0ff]"
     }
   ]
 
