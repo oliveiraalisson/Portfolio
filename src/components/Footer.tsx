@@ -33,7 +33,7 @@ export function Footer() {
 
         <div className="mt-8 pt-8 border-t border-border text-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 Alisson Oliveira. Todos os direitos reservados.
+            © 2025 Alisson Oliveira. Todos os direitos reservados.
           </p>
         </div>
       </div>
