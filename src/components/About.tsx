@@ -21,7 +21,7 @@ export function About() {
     },
     {
       icon: LineChart,
-      title: "Relatórios Executivos",
+      title: "Relatórios",
       description: "Desenvolvimento de relatórios claros para tomada de decisão"
     },
     {
@@ -44,9 +44,9 @@ export function About() {
             Sobre Mim
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Sou um analista de dados com paixão por descobrir insights que impulsionam 
-            decisões estratégicas. Com experiência em diversas ferramentas e metodologias, 
-            transformo dados complexos em visualizações claras e acionáveis.
+            Sou um Analista de Dados com formação em Engenharia, base técnica em Automação Industrial e Informática.
+            Meu objetivo é unir a capacidade analítica à visão de resolução de problemas para extrair insights que impulsionam decisões estratégicas.
+            Tenho experiência com diferentes ferramentas e metodologias, transformando dados complexos em visualizações claras, eficientes e acionáveis.
           </p>
         </div>
 
@@ -73,9 +73,9 @@ export function About() {
           <h3 className="text-2xl font-bold mb-6 text-center">Ferramentas & Tecnologias</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             {[
-              "Python", "SQL", "Power BI", "Tableau", 
-              "Excel", "R", "Google Analytics", "Pandas",
-              "Matplotlib", "Seaborn", "Jupyter", "Git"
+              "Power BI", "SQL", "Excel", "Tableau", 
+              "DAX", "R", "Python", "Canva",
+              "Power Query", "Power Point", "Word", "Kaggle"
             ].map((tool, index) => (
               <div 
                 key={index}
