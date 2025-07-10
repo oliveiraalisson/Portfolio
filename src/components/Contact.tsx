@@ -1,4 +1,3 @@
-npm install react-icons
 import { Mail, Linkedin, Github, Phone, MessageSquare } from "lucide-react"
 import { SiKaggle } from "react-icons/si"
 import { Button } from "@/components/ui/button"
