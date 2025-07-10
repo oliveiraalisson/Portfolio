@@ -29,7 +29,7 @@ export function Contact() {
     {
       icon: Kaggle,
       label: "Kaggle",
-      value: "+55 (11) 99999-9999",
+      value: "/catinhu",
       href: "https://www.kaggle.com/catinhu",
       color: "text-blue-200"
     }
@@ -44,8 +44,7 @@ export function Contact() {
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Estou sempre aberto a novos desafios e oportunidades. 
-            Entre em contato para discutirmos como posso ajudar seu negócio 
-            a tomar decisões mais assertivas através dos dados.
+            Entre em contato para conversarmos. Vamos nos conectar.
           </p>
         </div>
 
