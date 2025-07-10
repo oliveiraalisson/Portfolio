@@ -27,7 +27,7 @@ export function Contact() {
       color: "text-gray-800 dark:text-gray-200"
     },
     {
-      icon: Kaggle,
+      icon: Notebook,
       label: "Kaggle",
       value: "/catinhu",
       href: "https://www.kaggle.com/catinhu",
