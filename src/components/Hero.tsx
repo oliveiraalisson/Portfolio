@@ -4,23 +4,33 @@ import { Button } from "@/components/ui/button"
 
 export function Hero() {
   const scrollToAbout = () => {
+    console.log("scrollToAbout called")
     const element = document.querySelector("#about")
+    console.log("About element found:", element)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
     }
   }
 
   const scrollToProjects = () => {
+    console.log("scrollToProjects called")
     const element = document.querySelector("#projects")
+    console.log("Projects element found:", element)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
+    } else {
+      console.log("Projects element not found")
     }
   }
 
   const scrollToContact = () => {
+    console.log("scrollToContact called")
     const element = document.querySelector("#contact")
+    console.log("Contact element found:", element)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
+    } else {
+      console.log("Contact element not found")
     }
   }
 
