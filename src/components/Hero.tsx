@@ -41,33 +41,7 @@ export function Hero() {
             e análises que geram impacto real nos negócios.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in animation-delay-700">
-            <Button 
-              size="lg" 
-              className="gradient-primary text-white hover:scale-105 transition-transform duration-300"
-              onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              Ver Meus Projetos
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="hover:scale-105 transition-transform duration-300"
-              onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              Entre em Contato
-            </Button>
-          </div>
-
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={scrollToAbout}
-            className="animate-bounce mx-auto"
-          >
-            <ArrowDown className="h-6 w-6" />
-          </Button>
-        </div>
+         
       </div>
     </section>
   )
