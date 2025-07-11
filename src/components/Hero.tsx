@@ -10,6 +10,20 @@ export function Hero() {
     }
   }
 
+  const scrollToProjects = () => {
+    const element = document.querySelector("#projects")
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  const scrollToContact = () => {
+    const element = document.querySelector("#contact")
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Animation */}
@@ -40,11 +54,12 @@ export function Hero() {
             Especializado em visualização de dados, criação de dashboards interativos 
             e análises que geram impacto real nos negócios.
           </p>
- <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in animation-delay-700">
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in animation-delay-700">
             <Button 
               size="lg" 
               className="gradient-primary text-white hover:scale-105 transition-transform duration-300"
-              onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={scrollToProjects}
             >
               Ver Meus Projetos
             </Button>
@@ -52,7 +67,7 @@ export function Hero() {
               variant="outline" 
               size="lg"
               className="hover:scale-105 transition-transform duration-300"
-              onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={scrollToContact}
             >
               Entre em Contato
             </Button>
