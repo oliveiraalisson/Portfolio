@@ -1,3 +1,4 @@
+
 import { ArrowDown, BarChart3, Database, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -11,34 +12,11 @@ export function Hero() {
     }
   }
 
-  const scrollToProjects = () => {
-    console.log("scrollToProjects called")
-    // Add a small delay to ensure DOM is ready
-    setTimeout(() => {
-      const element = document.querySelector("#projects")
-      console.log("Projects element found:", element)
-      if (element) {
-        console.log("Scrolling to projects...")
-        element.scrollIntoView({ behavior: "smooth", block: "start" })
-      } else {
-        console.log("Projects element not found")
-      }
-    }, 100)
-  }
-
-  const scrollToContact = () => {
-    console.log("scrollToContact called")
-    // Add a small delay to ensure DOM is ready
-    setTimeout(() => {
-      const element = document.querySelector("#contact")
-      console.log("Contact element found:", element)
-      if (element) {
-        console.log("Scrolling to contact...")
-        element.scrollIntoView({ behavior: "smooth", block: "start" })
-      } else {
-        console.log("Contact element not found")
-      }
-    }, 100)
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
   }
 
   return (
@@ -76,7 +54,7 @@ export function Hero() {
             <Button 
               size="lg" 
               className="gradient-primary text-white hover:scale-105 transition-transform duration-300"
-              onClick={scrollToProjects}
+              onClick={() => scrollToSection("#projects")}
             >
               Ver Meus Projetos
             </Button>
@@ -84,7 +62,7 @@ export function Hero() {
               variant="outline" 
               size="lg"
               className="hover:scale-105 transition-transform duration-300"
-              onClick={scrollToContact}
+              onClick={() => scrollToSection("#contact")}
             >
               Entre em Contato
             </Button>
