@@ -12,16 +12,28 @@ export function Hero() {
     }
   }
 
-  const scrollToSection = (href: string) => {
-    console.log(`Scrolling to: ${href}`)
-    const element = document.querySelector(href)
-    console.log(`Element found for ${href}:`, element)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" })
-      console.log(`Successfully scrolled to ${href}`)
-    } else {
-      console.log(`Element not found for ${href}`)
-    }
+  const scrollToSection = (sectionId: string) => {
+    console.log(`Attempting to scroll to: ${sectionId}`)
+    
+    // Aguarda um pequeno delay para garantir que a página esteja carregada
+    setTimeout(() => {
+      const element = document.querySelector(sectionId)
+      console.log(`Element found for ${sectionId}:`, element)
+      
+      if (element) {
+        // Calcula a posição do elemento considerando o header fixo
+        const elementTop = element.getBoundingClientRect().top + window.pageYOffset
+        const headerOffset = 80 // altura aproximada do header fixo
+        
+        window.scrollTo({
+          top: elementTop - headerOffset,
+          behavior: 'smooth'
+        })
+        console.log(`Successfully scrolled to ${sectionId}`)
+      } else {
+        console.log(`Element not found for ${sectionId}`)
+      }
+    }, 100)
   }
 
   return (
