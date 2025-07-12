@@ -13,9 +13,14 @@ export function Hero() {
   }
 
   const scrollToSection = (href: string) => {
+    console.log(`Scrolling to: ${href}`)
     const element = document.querySelector(href)
+    console.log(`Element found for ${href}:`, element)
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth", block: "start" })
+      console.log(`Successfully scrolled to ${href}`)
+    } else {
+      console.log(`Element not found for ${href}`)
     }
   }
 
