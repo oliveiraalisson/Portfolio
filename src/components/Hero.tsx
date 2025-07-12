@@ -1,4 +1,3 @@
-
 import { ArrowDown, BarChart3, Database, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -14,24 +13,32 @@ export function Hero() {
 
   const scrollToProjects = () => {
     console.log("scrollToProjects called")
-    const element = document.querySelector("#projects")
-    console.log("Projects element found:", element)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    } else {
-      console.log("Projects element not found")
-    }
+    // Add a small delay to ensure DOM is ready
+    setTimeout(() => {
+      const element = document.querySelector("#projects")
+      console.log("Projects element found:", element)
+      if (element) {
+        console.log("Scrolling to projects...")
+        element.scrollIntoView({ behavior: "smooth", block: "start" })
+      } else {
+        console.log("Projects element not found")
+      }
+    }, 100)
   }
 
   const scrollToContact = () => {
     console.log("scrollToContact called")
-    const element = document.querySelector("#contact")
-    console.log("Contact element found:", element)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    } else {
-      console.log("Contact element not found")
-    }
+    // Add a small delay to ensure DOM is ready
+    setTimeout(() => {
+      const element = document.querySelector("#contact")
+      console.log("Contact element found:", element)
+      if (element) {
+        console.log("Scrolling to contact...")
+        element.scrollIntoView({ behavior: "smooth", block: "start" })
+      } else {
+        console.log("Contact element not found")
+      }
+    }, 100)
   }
 
   return (
