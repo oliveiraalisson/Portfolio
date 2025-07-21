@@ -3,22 +3,10 @@ import { ArrowDown, BarChart3, Database, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Hero() {
-  const scrollToAbout = () => {
-    console.log("scrollToAbout called")
-    const element = document.querySelector("#about")
-    console.log("About element found:", element)
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
-    }
-  }
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.querySelector(sectionId)
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: "smooth",
-        block: "start"
-      })
     }
   }
 
@@ -74,7 +62,7 @@ export function Hero() {
           <Button
             variant="ghost"
             size="icon"
-            onClick={scrollToAbout}
+            onClick={() => scrollToSection("#about")}
             className="animate-bounce mx-auto"
           >
             <ArrowDown className="h-6 w-6" />
