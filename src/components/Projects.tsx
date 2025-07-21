@@ -56,7 +56,12 @@ export function Projects() {
                   />
                 </div>
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                  <Button size="sm" variant="secondary" className="gap-2">
+                  <Button 
+                    size="sm" 
+                    variant="secondary" 
+                    className="gap-2"
+                    onClick={() => window.open(project.demoUrl, '_blank')}
+                  >
                     <Eye className="h-4 w-4" />
                     Visualizar
                   </Button>
