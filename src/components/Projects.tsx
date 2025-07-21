@@ -10,7 +10,7 @@ export function Projects() {
       description: "Análise completa de performance de vendas com ao longo do anos, segmento mais lucrativo e tendências dos produtos.",
       icon: BarChart3,
       tags: ["Power BI", "Power Query", "DAX"],
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/0706a983-4968-487d-b5ea-385190de6fbb.png",
       demoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7339100190672392193/"
     },
     {
@@ -18,7 +18,7 @@ export function Projects() {
       description: "Dashboard interativo para acompanhamento da eficiência operacional, satisfação dos clientes e a rentabilidade da empresa.",
       icon: PieChart,
       tags: ["Power BI", "ETL", "DAX"],
-      image: "https://media.licdn.com/dms/image/v2/D5622AQHwFwC2_iYFiA/feedshare-shrink_2048_1536/B56ZeDtGo6G0Aw-/0/1750261329752?e=1755734400&v=beta&t=09drxK9DDFAW_eik7gCk23u5Dn1BvpBbKvTmUBjWD90",
+      image: "/lovable-uploads/f5d33aa4-d686-4c76-b9e7-56760425595a.png",
       demoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7341128102342729729/"
     },
     {
@@ -26,7 +26,7 @@ export function Projects() {
       description: "Visualização de dados de campanhas com indicadores de performance de canais e comportamento do consumidor",
       icon: TrendingUp,
       tags: ["Power BI", "ETL", "DAX"],
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/fc95d58c-7a50-481f-a363-835d5c04ec09.png",
       demoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7345962069323591680/"
     }
   ]
@@ -48,10 +48,14 @@ export function Projects() {
           {projects.map((project, index) => (
             <Card key={index} className="group hover:shadow-xl transition-all duration-500 hover:scale-105 border-none bg-card/50 backdrop-blur-sm overflow-hidden">
               <div className="relative">
-                <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  <project.icon className="h-16 w-16 text-primary group-hover:scale-110 transition-transform duration-300" />
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <Button size="sm" variant="secondary" className="gap-2">
                     <Eye className="h-4 w-4" />
                     Visualizar
