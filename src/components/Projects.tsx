@@ -1,7 +1,9 @@
 
-import { ExternalLink, Eye, BarChart3, TrendingUp, PieChart } from "lucide-react"
+import { ExternalLink, Eye, BarChart3, TrendingUp, PieChart, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { useState } from "react"
 
 export function Projects() {
   const projects = [
@@ -56,15 +58,23 @@ export function Projects() {
                   />
                 </div>
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                  <Button 
-                    size="sm" 
-                    variant="secondary" 
-                    className="gap-2"
-                    onClick={() => window.open(project.demoUrl, '_blank')}
-                  >
-                    <Eye className="h-4 w-4" />
-                    Visualizar
-                  </Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button size="sm" variant="secondary" className="gap-2">
+                        <Eye className="h-4 w-4" />
+                        Visualizar
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-6xl w-full h-[90vh] p-0 bg-black/95">
+                      <div className="relative w-full h-full flex items-center justify-center">
+                        <img 
+                          src={project.image} 
+                          alt={project.title}
+                          className="max-w-full max-h-full object-contain"
+                        />
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 </div>
               </div>
               
