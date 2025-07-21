@@ -16,6 +16,7 @@ export function Projects() {
     {
       title: "Desempenho operacional e de Vendas",
       description: "Dashboard interativo para acompanhamento da eficiência operacional, satisfação dos clientes e a rentabilidade da empresa.",
+      icon: PieChart,
       tags: ["Power BI", "ETL", "DAX"],
       image: "https://media.licdn.com/dms/image/v2/D5622AQHwFwC2_iYFiA/feedshare-shrink_2048_1536/B56ZeDtGo6G0Aw-/0/1750261329752?e=1755734400&v=beta&t=09drxK9DDFAW_eik7gCk23u5Dn1BvpBbKvTmUBjWD90",
       demoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7341128102342729729/"
