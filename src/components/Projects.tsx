@@ -12,7 +12,7 @@ export function Projects() {
       description: "Análise completa de performance de vendas com ao longo do anos, segmento mais lucrativo e tendências dos produtos.",
       icon: BarChart3,
       tags: ["Power BI", "Power Query", "DAX"],
-      image: "public/lovable-uploads/0706a983-4968-487d-b5ea-385190de6fbb.png",
+      image: "/lovable-uploads/0706a983-4968-487d-b5ea-385190de6fbb.png",
       demoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7339100190672392193/"
     },
     {
