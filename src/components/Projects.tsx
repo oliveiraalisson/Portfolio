@@ -36,7 +36,7 @@ export function Projects() {
     description: "Análise de dados de uma empresa de tecnologia voltada para saúde da mulher utilizando R, Tableau e técnicas de data science",
     icon: Activity,
     tags: ["R", "Tidyverse", "Tableau", "Kaggle"],
-    image: `/lovable-uploads/file1.png`,
+    image: `/placeholder.svg`,
     demoUrl: "https://www.kaggle.com/code/catinhu/estudo-de-caso-bellabeat"
     }
   ]
