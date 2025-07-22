@@ -1,5 +1,5 @@
 
-import { ExternalLink, Eye, BarChart3, TrendingUp, PieChart, X } from "lucide-react"
+import { ExternalLink, Eye, BarChart3, TrendingUp, PieChart, Activity, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
@@ -30,6 +30,14 @@ export function Projects() {
       tags: ["Power BI", "ETL", "DAX"],
       image: "/lovable-uploads/fc95d58c-7a50-481f-a363-835d5c04ec09.png",
       demoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7345962069323591680/"
+    },
+    {
+      title: "Estudo de Caso - Bellabeat",
+      description: "Análise de dados de uma empresa de tecnologia voltada para saúde da mulher utilizando Python e técnicas de data science",
+      icon: Activity,
+      tags: ["Python", "Pandas", "Data Science", "Kaggle"],
+      image: "/placeholder.svg",
+      demoUrl: "https://www.kaggle.com/code/catinhu/estudo-de-caso-bellabeat"
     }
   ]
 
