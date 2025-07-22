@@ -33,7 +33,7 @@ export function Projects() {
     },
     {
       title: "Estudo de Caso - Bellabeat",
-      description: "Análise de dados de uma empresa de tecnologia voltada para saúde da mulher utilizando Python e técnicas de data science",
+      description: "Análise de dados de uma empresa de tecnologia voltada para saúde da mulher utilizando R, Tableau e técnicas de data science",
       icon: Activity,
       tags: ["R", "Tidyverse", "Tableau", "Kaggle"],
       image: "/placeholder.svg",
