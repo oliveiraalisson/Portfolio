@@ -35,7 +35,7 @@ export function Projects() {
       title: "Estudo de Caso - Bellabeat",
       description: "Análise de dados de uma empresa de tecnologia voltada para saúde da mulher utilizando Python e técnicas de data science",
       icon: Activity,
-      tags: ["Python", "Pandas", "Data Science", "Kaggle"],
+      tags: ["R", "Tidyverse", "Tableau", "Kaggle"],
       image: "/placeholder.svg",
       demoUrl: "https://www.kaggle.com/code/catinhu/estudo-de-caso-bellabeat"
     }
