@@ -1,4 +1,3 @@
-
 import { ExternalLink, Eye, BarChart3, TrendingUp, PieChart, Activity, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -40,47 +39,47 @@ export function Projects() {
     demoUrl: "https://www.kaggle.com/code/catinhu/estudo-de-caso-bellabeat"
   },
   {
-    title: "Dashboard Financeiro",
-    description: "Análise completa de indicadores financeiros, fluxo de caixa e projeções de rentabilidade para tomada de decisões estratégicas",
-    icon: TrendingUp,
-    tags: ["Power BI", "Excel", "DAX"],
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    demoUrl: null,
-    comingSoon: true
-  },
-  {
-    title: "Análise de RH",
-    description: "Dashboard interativo para gestão de recursos humanos com métricas de performance, turnover e satisfação dos colaboradores",
+    title: "Projeto em Breve",
+    description: "Mais informações em breve",
     icon: BarChart3,
-    tags: ["Tableau", "Python", "SQL"],
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    tags: ["Outro"],
+    image: null,
     demoUrl: null,
     comingSoon: true
   },
   {
-    title: "Previsão de Vendas",
-    description: "Modelo de machine learning para previsão de vendas utilizando séries temporais e algoritmos de regressão avançados",
-    icon: Activity,
-    tags: ["Python", "Scikit-learn", "Pandas"],
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    demoUrl: null,
-    comingSoon: true
-  },
-  {
-    title: "Monitoramento de KPIs",
-    description: "Sistema de monitoramento em tempo real de indicadores chave de performance com alertas automáticos e relatórios personalizados",
+    title: "Projeto em Breve",
+    description: "Mais informações em breve",
     icon: PieChart,
-    tags: ["Power BI", "SQL Server", "Azure"],
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    tags: ["Outro"],
+    image: null,
     demoUrl: null,
     comingSoon: true
   },
   {
-    title: "Análise de E-commerce",
-    description: "Dashboard completo para análise de comportamento do consumidor online, conversão de vendas e otimização de campanhas digitais",
+    title: "Projeto em Breve",
+    description: "Mais informações em breve",
     icon: TrendingUp,
-    tags: ["Google Analytics", "Power BI", "SQL"],
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    tags: ["Outro"],
+    image: null,
+    demoUrl: null,
+    comingSoon: true
+  },
+  {
+    title: "Projeto em Breve",
+    description: "Mais informações em breve",
+    icon: Activity,
+    tags: ["Outro"],
+    image: null,
+    demoUrl: null,
+    comingSoon: true
+  },
+  {
+    title: "Projeto em Breve",
+    description: "Mais informações em breve",
+    icon: BarChart3,
+    tags: ["Outro"],
+    image: null,
     demoUrl: null,
     comingSoon: true
   }
@@ -103,36 +102,44 @@ export function Projects() {
           {projects.map((project, index) => (
             <Card key={index} className="group hover:shadow-xl transition-all duration-500 hover:scale-105 border-none bg-card/50 backdrop-blur-sm overflow-hidden">
               <div className="relative">
-                <div className="aspect-video overflow-hidden bg-muted">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button size="sm" variant="secondary" className="gap-2">
-                        <Eye className="h-4 w-4" />
-                        Visualizar
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-6xl w-full h-[90vh] p-0 bg-black/95">
-                      <DialogTitle className="sr-only">{project.title}</DialogTitle>
-                      <DialogDescription className="sr-only">
-                        Visualização ampliada do projeto {project.title}
-                      </DialogDescription>
-                      <div className="relative w-full h-full flex items-center justify-center">
-                        <img 
-                          src={project.image} 
-                          alt={project.title}
-                          className="max-w-full max-h-full object-contain"
-                        />
-                      </div>
-                    </DialogContent>
-                  </Dialog>
-                </div>
+                {project.image ? (
+                  <div className="aspect-video overflow-hidden bg-muted">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                ) : (
+                  <div className="aspect-video overflow-hidden bg-muted flex items-center justify-center">
+                    <project.icon className="h-16 w-16 text-muted-foreground/50" />
+                  </div>
+                )}
+                {project.image && (
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button size="sm" variant="secondary" className="gap-2">
+                          <Eye className="h-4 w-4" />
+                          Visualizar
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-6xl w-full h-[90vh] p-0 bg-black/95">
+                        <DialogTitle className="sr-only">{project.title}</DialogTitle>
+                        <DialogDescription className="sr-only">
+                          Visualização ampliada do projeto {project.title}
+                        </DialogDescription>
+                        <div className="relative w-full h-full flex items-center justify-center">
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+                )}
               </div>
               
               <CardHeader>
