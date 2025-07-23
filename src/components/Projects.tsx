@@ -12,7 +12,7 @@ export function Projects() {
     description: "Análise completa de performance de vendas com ao longo do anos, segmento mais lucrativo e tendências dos produtos.",
     icon: BarChart3,
     tags: ["Power BI", "Power Query", "DAX"],
-    image: "lovable-uploads/0706a983-4968-487d-b5ea-385190de6fbb.png",
+    image: "/portfolio/lovable-uploads/0706a983-4968-487d-b5ea-385190de6fbb.png",
     demoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7339100190672392193/"
   },
   {
@@ -20,7 +20,7 @@ export function Projects() {
     description: "Dashboard interativo para acompanhamento da eficiência operacional, satisfação dos clientes e a rentabilidade da empresa.",
     icon: PieChart,
     tags: ["Power BI", "ETL", "DAX"],
-    image: "lovable-uploads/f5d33aa4-d686-4c76-b9e7-56760425595a.png",
+    image: "/portfolio/lovable-uploads/f5d33aa4-d686-4c76-b9e7-56760425595a.png",
     demoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7341128102342729729/"
   },
   {
@@ -28,7 +28,7 @@ export function Projects() {
     description: "Visualização de dados de campanhas com indicadores de performance de canais e comportamento do consumidor",
     icon: TrendingUp,
     tags: ["Power BI", "ETL", "DAX"],
-    image: "lovable-uploads/fc95d58c-7a50-481f-a363-835d5c04ec09.png",
+    image: "/portfolio/lovable-uploads/fc95d58c-7a50-481f-a363-835d5c04ec09.png",
     demoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7345962069323591680/"
   },
   {
@@ -36,7 +36,7 @@ export function Projects() {
     description: "Análise de dados de uma empresa de tecnologia voltada para saúde da mulher utilizando R, Tableau e técnicas de data science",
     icon: Activity,
     tags: ["R", "Tidyverse", "Tableau", "Kaggle"],
-    image: "lovable-uploads/file1.png",
+    image: "/portfolio/lovable-uploads/file1.png",
     demoUrl: "https://www.kaggle.com/code/catinhu/estudo-de-caso-bellabeat"
     }
   ]
