@@ -2,7 +2,7 @@
 import { ExternalLink, Eye, BarChart3, TrendingUp, PieChart, Activity, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogTrigger } from "@/components/ui/dialog"
 import { useState } from "react"
 
 export function Projects() {
@@ -74,6 +74,10 @@ export function Projects() {
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="max-w-6xl w-full h-[90vh] p-0 bg-black/95">
+                      <DialogTitle className="sr-only">{project.title}</DialogTitle>
+                      <DialogDescription className="sr-only">
+                        Visualização ampliada do projeto {project.title}
+                      </DialogDescription>
                       <div className="relative w-full h-full flex items-center justify-center">
                         <img 
                           src={project.image} 
