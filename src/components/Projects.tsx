@@ -175,7 +175,7 @@ export function Projects() {
                     onClick={() => window.open(project.demoUrl, '_blank')}
                   >
                     <ExternalLink className="h-4 w-4" />
-                    Ver Dashboard
+                    Ver mais
                   </Button>
                 )}
               </CardContent>
