@@ -38,7 +38,52 @@ export function Projects() {
     tags: ["R", "Tidyverse", "Tableau", "Kaggle"],
     image: "/portfolio/lovable-uploads/file1.png",
     demoUrl: "https://www.kaggle.com/code/catinhu/estudo-de-caso-bellabeat"
-    }
+  },
+  {
+    title: "Dashboard Financeiro",
+    description: "Análise completa de indicadores financeiros, fluxo de caixa e projeções de rentabilidade para tomada de decisões estratégicas",
+    icon: TrendingUp,
+    tags: ["Power BI", "Excel", "DAX"],
+    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    demoUrl: null,
+    comingSoon: true
+  },
+  {
+    title: "Análise de RH",
+    description: "Dashboard interativo para gestão de recursos humanos com métricas de performance, turnover e satisfação dos colaboradores",
+    icon: BarChart3,
+    tags: ["Tableau", "Python", "SQL"],
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    demoUrl: null,
+    comingSoon: true
+  },
+  {
+    title: "Previsão de Vendas",
+    description: "Modelo de machine learning para previsão de vendas utilizando séries temporais e algoritmos de regressão avançados",
+    icon: Activity,
+    tags: ["Python", "Scikit-learn", "Pandas"],
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    demoUrl: null,
+    comingSoon: true
+  },
+  {
+    title: "Monitoramento de KPIs",
+    description: "Sistema de monitoramento em tempo real de indicadores chave de performance com alertas automáticos e relatórios personalizados",
+    icon: PieChart,
+    tags: ["Power BI", "SQL Server", "Azure"],
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    demoUrl: null,
+    comingSoon: true
+  },
+  {
+    title: "Análise de E-commerce",
+    description: "Dashboard completo para análise de comportamento do consumidor online, conversão de vendas e otimização de campanhas digitais",
+    icon: TrendingUp,
+    tags: ["Google Analytics", "Power BI", "SQL"],
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    demoUrl: null,
+    comingSoon: true
+  }
   ]
 
   return (
@@ -109,13 +154,23 @@ export function Projects() {
                   ))}
                 </div>
                 
-                <Button 
-                  className="w-full gap-2 gradient-primary text-white hover:scale-105 transition-transform duration-300"
-                  onClick={() => window.open(project.demoUrl, '_blank')}
-                >
-                  <ExternalLink className="h-4 w-4" />
-                  Ver Dashboard
-                </Button>
+                {project.comingSoon ? (
+                  <Button 
+                    className="w-full gap-2 bg-muted text-muted-foreground cursor-not-allowed"
+                    disabled
+                  >
+                    <Eye className="h-4 w-4" />
+                    Em Breve
+                  </Button>
+                ) : (
+                  <Button 
+                    className="w-full gap-2 gradient-primary text-white hover:scale-105 transition-transform duration-300"
+                    onClick={() => window.open(project.demoUrl, '_blank')}
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Ver Dashboard
+                  </Button>
+                )}
               </CardContent>
             </Card>
           ))}
