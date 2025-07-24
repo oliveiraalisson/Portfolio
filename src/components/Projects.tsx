@@ -1,4 +1,3 @@
-
 import { ExternalLink, Eye, BarChart3, TrendingUp, PieChart, Activity, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -104,15 +103,15 @@ export function Projects() {
             <Card key={index} className="group hover:shadow-xl transition-all duration-500 hover:scale-105 border-none bg-card/50 backdrop-blur-sm overflow-hidden">
               <div className="relative">
                 {project.image ? (
-                 <div className="aspect-video overflow-hidden bg-muted">
+                  <div className="aspect-video overflow-hidden bg-muted">
                     <img 
                       src={project.image} 
                       alt={project.title}
-                      className="w-full h-full object-contain group-hover:scale-110 transition-all duration-700"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                 ) : (
-                 <div className="aspect-video overflow-hidden bg-muted flex items-center justify-center">
+                  <div className="aspect-video overflow-hidden bg-muted flex items-center justify-center">
                     <project.icon className="h-16 w-16 text-muted-foreground/50" />
                   </div>
                 )}
@@ -120,7 +119,7 @@ export function Projects() {
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <Dialog>
                       <DialogTrigger asChild>
-                         <Button size="sm" variant="secondary" className="gap-2">
+                        <Button size="sm" variant="secondary" className="gap-2">
                           <Eye className="h-4 w-4" />
                           Visualizar
                         </Button>
@@ -152,7 +151,7 @@ export function Projects() {
               
               <CardContent>
                 <div className="flex flex-wrap gap-2 mb-4">
-                 {project.tags.map((tag, tagIndex) => (
+                  {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
                       className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
@@ -172,10 +171,10 @@ export function Projects() {
                   </Button>
                 ) : (
                   <Button 
-                     className="w-full gap-2 gradient-primary text-white hover:scale-105 transition-transform duration-300"
+                    className="w-full gap-2 gradient-primary text-white hover:scale-105 transition-transform duration-300"
                     onClick={() => window.open(project.demoUrl, '_blank')}
                   >
-                     <ExternalLink className="h-4 w-4" />
+                    <ExternalLink className="h-4 w-4" />
                     Ver mais
                   </Button>
                 )}
