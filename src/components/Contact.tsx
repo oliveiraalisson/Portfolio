@@ -69,28 +69,6 @@ export function Contact() {
               </Card>
             ))}
           </div>
-          
-          {/* LinkedIn Badge */}
-          <div className="mt-8 flex justify-center">
-            <div 
-              className="badge-base LI-profile-badge bg-card border border-border rounded-lg p-4 hover:shadow-lg transition-all duration-300 hover:scale-105"
-              data-locale="pt_BR" 
-              data-size="medium" 
-              data-theme="light" 
-              data-type="VERTICAL" 
-              data-vanity="alissonmichel" 
-              data-version="v1"
-            >
-              <a 
-                className="badge-base__link LI-simple-link text-foreground hover:text-primary transition-colors no-underline font-semibold" 
-                href="https://br.linkedin.com/in/alissonmichel?trk=profile-badge"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Alisson Oliveira - LinkedIn Profile
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
