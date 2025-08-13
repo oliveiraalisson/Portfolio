@@ -6,6 +6,17 @@ import { useState } from "react"
 
 export function Projects() {
   const [activeFilter, setActiveFilter] = useState('Todos')
+  const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set())
+
+  const toggleExpanded = (index: number) => {
+    const newExpanded = new Set(expandedCards)
+    if (newExpanded.has(index)) {
+      newExpanded.delete(index)
+    } else {
+      newExpanded.add(index)
+    }
+    setExpandedCards(newExpanded)
+  }
 
   const projects = [
   {
@@ -133,8 +144,15 @@ export function Projects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <Card key={index} className="group relative overflow-hidden border bg-card/50 backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/0 before:via-primary/5 before:to-primary/0 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500">
+          {filteredProjects.map((project, index) => {
+            const isExpanded = expandedCards.has(index)
+            const isLongDescription = project.description.length > 100
+            const truncatedDescription = isLongDescription && !isExpanded 
+              ? project.description.substring(0, 100) + "..."
+              : project.description
+
+            return (
+            <Card key={index} className="group relative overflow-hidden border bg-card/50 backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/0 before:via-primary/5 before:to-primary/0 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500 h-full flex flex-col">
               <div className="relative">
                 {project.image ? (
                   <div className="aspect-video overflow-hidden bg-muted">
@@ -176,14 +194,22 @@ export function Projects() {
                 )}
               </div>
               
-              <CardHeader>
+              <CardHeader className="flex-shrink-0">
                 <CardTitle className="text-xl">{project.title}</CardTitle>
                 <CardDescription className="text-muted-foreground">
-                  {project.description}
+                  {truncatedDescription}
+                  {isLongDescription && (
+                    <button
+                      onClick={() => toggleExpanded(index)}
+                      className="ml-2 text-primary hover:text-primary/80 text-sm font-medium"
+                    >
+                      {isExpanded ? "ver menos" : "ver mais"}
+                    </button>
+                  )}
                 </CardDescription>
               </CardHeader>
               
-              <CardContent>
+              <CardContent className="flex-grow flex flex-col justify-between">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, tagIndex) => (
                     <span
@@ -197,7 +223,7 @@ export function Projects() {
                 
                 {project.comingSoon ? (
                   <Button 
-                    className="w-full gap-2 bg-muted text-muted-foreground cursor-not-allowed"
+                    className="w-full gap-2 bg-muted text-muted-foreground cursor-not-allowed mt-auto"
                     disabled
                   >
                     <Eye className="h-4 w-4" />
@@ -205,7 +231,7 @@ export function Projects() {
                   </Button>
                 ) : (
                   <Button 
-                    className="w-full gap-2 gradient-primary text-white hover:scale-105 transition-transform duration-300"
+                    className="w-full gap-2 gradient-primary text-white hover:scale-105 transition-transform duration-300 mt-auto"
                     onClick={() => window.open(project.demoUrl, '_blank')}
                   >
                     <ExternalLink className="h-4 w-4" />
@@ -214,7 +240,8 @@ export function Projects() {
                 )}
               </CardContent>
             </Card>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>
