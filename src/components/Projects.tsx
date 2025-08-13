@@ -134,8 +134,8 @@ export function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
-            <Card key={index} className="group relative overflow-hidden border bg-card/50 backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/0 before:via-primary/5 before:to-primary/0 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500 h-[480px] flex flex-col">
-              <div className="relative flex-shrink-0">
+            <Card key={index} className="group relative overflow-hidden border bg-card/50 backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/0 before:via-primary/5 before:to-primary/0 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500">
+              <div className="relative">
                 {project.image ? (
                   <div className="aspect-video overflow-hidden bg-muted">
                     <img 
@@ -149,15 +149,13 @@ export function Projects() {
                     <project.icon className="h-16 w-16 text-muted-foreground/50" />
                   </div>
                 )}
-                
-                {/* Overlay com botões */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100">
-                  {project.image && (
+                {project.image && (
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <Dialog>
                       <DialogTrigger asChild>
-                        <Button size="sm" variant="secondary" className="gap-2 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30">
+                        <Button size="sm" variant="secondary" className="gap-2">
                           <Eye className="h-4 w-4" />
-                          Ver
+                          Visualizar
                         </Button>
                       </DialogTrigger>
                       <DialogContent className="max-w-6xl w-full h-[90vh] p-0 bg-black/95">
@@ -174,91 +172,51 @@ export function Projects() {
                         </div>
                       </DialogContent>
                     </Dialog>
-                  )}
-                  
-                  {!project.comingSoon && project.demoUrl && (
-                    <Button 
-                      size="sm" 
-                      variant="secondary" 
-                      className="gap-2 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30"
-                      onClick={() => window.open(project.demoUrl, "_blank")}
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                      Ver mais
-                    </Button>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
               
-              <div className="flex-1 flex flex-col">
-                <CardHeader className="flex-shrink-0">
-                  <CardTitle className="text-xl line-clamp-2">{project.title}</CardTitle>
-                  <ProjectDescription description={project.description} />
-                </CardHeader>
+              <CardHeader>
+                <CardTitle className="text-xl">{project.title}</CardTitle>
+                <CardDescription className="text-muted-foreground">
+                  {project.description}
+                </CardDescription>
+              </CardHeader>
+              
+              <CardContent>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
                 
-                <CardContent className="flex-1 flex flex-col justify-between">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="mt-auto">
-                    {project.comingSoon ? (
-                      <Button 
-                        className="w-full gap-2 bg-muted text-muted-foreground cursor-not-allowed"
-                        disabled
-                      >
-                        <Eye className="h-4 w-4" />
-                        Em Breve
-                      </Button>
-                    ) : (
-                      <Button 
-                        className="w-full gap-2 gradient-primary text-white hover:scale-105 transition-transform duration-300"
-                        onClick={() => window.open(project.demoUrl, "_blank")}
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                        Ver projeto
-                      </Button>
-                    )}
-                  </div>
-                </CardContent>
-              </div>
+                {project.comingSoon ? (
+                  <Button 
+                    className="w-full gap-2 bg-muted text-muted-foreground cursor-not-allowed"
+                    disabled
+                  >
+                    <Eye className="h-4 w-4" />
+                    Em Breve
+                  </Button>
+                ) : (
+                  <Button 
+                    className="w-full gap-2 gradient-primary text-white hover:scale-105 transition-transform duration-300"
+                    onClick={() => window.open(project.demoUrl, '_blank')}
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Ver mais
+                  </Button>
+                )}
+              </CardContent>
             </Card>
           ))}
         </div>
       </div>
     </section>
-  )
-}
-
-// Componente para descrição com "ver mais"
-function ProjectDescription({ description }: { description: string }) {
-  const [isExpanded, setIsExpanded] = useState(false)
-  const maxLength = 100
-  
-  if (description.length <= maxLength) {
-    return (
-      <CardDescription className="text-muted-foreground">
-        {description}
-      </CardDescription>
-    )
-  }
-  
-  return (
-    <CardDescription className="text-muted-foreground">
-      {isExpanded ? description : `${description.substring(0, maxLength)}...`}
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="ml-2 text-primary hover:text-primary/80 text-sm font-medium"
-      >
-        {isExpanded ? "ver menos" : "ver mais"}
-      </button>
-    </CardDescription>
   )
 }
