@@ -6,7 +6,6 @@ import { useState } from "react"
 
 export function Projects() {
   const [activeFilter, setActiveFilter] = useState('Todos')
-  const [expandedDescriptions, setExpandedDescriptions] = useState<Set<number>>(new Set())
 
   const projects = [
   {
@@ -103,16 +102,6 @@ export function Projects() {
     ? projects 
     : projects.filter(project => project.category === activeFilter)
 
-  const toggleDescription = (index: number) => {
-    const newExpanded = new Set(expandedDescriptions)
-    if (newExpanded.has(index)) {
-      newExpanded.delete(index)
-    } else {
-      newExpanded.add(index)
-    }
-    setExpandedDescriptions(newExpanded)
-  }
-
   return (
     <section id="projects" className="py-20">
       <div className="container mx-auto px-4">
@@ -144,15 +133,8 @@ export function Projects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => {
-            const isExpanded = expandedDescriptions.has(index)
-            const shouldTruncate = project.description.length > 120
-            const displayDescription = isExpanded || !shouldTruncate 
-              ? project.description 
-              : project.description.slice(0, 120) + '...'
-
-            return (
-            <Card key={index} className="group relative overflow-hidden border bg-card/50 backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/0 before:via-primary/5 before:to-primary/0 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500 h-full flex flex-col">
+          {filteredProjects.map((project, index) => (
+            <Card key={index} className="group relative overflow-hidden border bg-card/50 backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/0 before:via-primary/5 before:to-primary/0 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500">
               <div className="relative">
                 {project.image ? (
                   <div className="aspect-video overflow-hidden bg-muted">
@@ -168,7 +150,7 @@ export function Projects() {
                   </div>
                 )}
                 {project.image && (
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100">
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                     <Dialog>
                       <DialogTrigger asChild>
                         <Button size="sm" variant="secondary" className="gap-2">
@@ -190,37 +172,18 @@ export function Projects() {
                         </div>
                       </DialogContent>
                     </Dialog>
-                    {!project.comingSoon && (
-                      <Button 
-                        size="sm" 
-                        variant="secondary" 
-                        className="gap-2"
-                        onClick={() => window.open(project.demoUrl, '_blank')}
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                        Ver Projeto
-                      </Button>
-                    )}
                   </div>
                 )}
               </div>
               
-              <CardHeader className="flex-shrink-0">
+              <CardHeader>
                 <CardTitle className="text-xl">{project.title}</CardTitle>
-                <div className="text-muted-foreground">
-                  <p>{displayDescription}</p>
-                  {shouldTruncate && (
-                    <button
-                      onClick={() => toggleDescription(index)}
-                      className="text-primary hover:text-primary/80 text-sm mt-1 transition-colors"
-                    >
-                      {isExpanded ? 'Ver menos' : 'Ver mais'}
-                    </button>
-                  )}
-                </div>
+                <CardDescription className="text-muted-foreground">
+                  {project.description}
+                </CardDescription>
               </CardHeader>
               
-              <CardContent className="flex-grow flex flex-col justify-between">
+              <CardContent>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, tagIndex) => (
                     <span
@@ -234,7 +197,7 @@ export function Projects() {
                 
                 {project.comingSoon ? (
                   <Button 
-                    className="w-full gap-2 bg-muted text-muted-foreground cursor-not-allowed mt-auto"
+                    className="w-full gap-2 bg-muted text-muted-foreground cursor-not-allowed"
                     disabled
                   >
                     <Eye className="h-4 w-4" />
@@ -242,17 +205,16 @@ export function Projects() {
                   </Button>
                 ) : (
                   <Button 
-                    className="w-full gap-2 gradient-primary text-white hover:scale-105 transition-transform duration-300 mt-auto"
+                    className="w-full gap-2 gradient-primary text-white hover:scale-105 transition-transform duration-300"
                     onClick={() => window.open(project.demoUrl, '_blank')}
                   >
                     <ExternalLink className="h-4 w-4" />
-                    Ver Projeto
+                    Ver mais
                   </Button>
                 )}
               </CardContent>
             </Card>
-            )
-          })}
+          ))}
         </div>
       </div>
     </section>
