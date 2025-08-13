@@ -5,15 +5,12 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogTrigger } 
 import { useState } from "react"
 
 export function Projects() {
-  const [activeFilter, setActiveFilter] = useState('Todos')
-
   const projects = [
   {
     title: "Dashboard de Vendas",
     description: "Análise completa de performance de vendas com ao longo do anos, segmento mais lucrativo e tendências dos produtos.",
     icon: BarChart3,
     tags: ["Power BI", "Power Query", "DAX"],
-    category: "Analytics",
     image: "/portfolio/lovable-uploads/0706a983-4968-487d-b5ea-385190de6fbb.png",
     demoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7339100190672392193/"
   },
@@ -22,7 +19,6 @@ export function Projects() {
     description: "Dashboard interativo para acompanhamento da eficiência operacional, satisfação dos clientes e a rentabilidade da empresa.",
     icon: PieChart,
     tags: ["Power BI", "ETL", "DAX"],
-    category: "Business Intelligence",
     image: "/portfolio/lovable-uploads/f5d33aa4-d686-4c76-b9e7-56760425595a.png",
     demoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7341128102342729729/"
   },
@@ -31,7 +27,6 @@ export function Projects() {
     description: "Visualização de dados de campanhas com indicadores de performance de canais e comportamento do consumidor",
     icon: TrendingUp,
     tags: ["Power BI", "ETL", "DAX"],
-    category: "Marketing Analytics",
     image: "/portfolio/lovable-uploads/fc95d58c-7a50-481f-a363-835d5c04ec09.png",
     demoUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7345962069323591680/"
   },
@@ -40,7 +35,6 @@ export function Projects() {
     description: "Análise de dados de uma empresa de tecnologia voltada para saúde da mulher utilizando R e técnicas de data science",
     icon: Activity,
     tags: ["R", "Tidyverse", "Kaggle"],
-    category: "Data Science",
     image: "/portfolio/lovable-uploads/file1.png",
     demoUrl: "https://www.kaggle.com/code/catinhu/estudo-de-caso-bellabeat"
   },
@@ -49,7 +43,6 @@ export function Projects() {
     description: "Mais informações em breve",
     icon: BarChart3,
     tags: ["Outro"],
-    category: "Analytics",
     image: null,
     demoUrl: null,
     comingSoon: true
@@ -59,7 +52,6 @@ export function Projects() {
     description: "Mais informações em breve",
     icon: PieChart,
     tags: ["Outro"],
-    category: "Business Intelligence",
     image: null,
     demoUrl: null,
     comingSoon: true
@@ -69,7 +61,6 @@ export function Projects() {
     description: "Mais informações em breve",
     icon: TrendingUp,
     tags: ["Outro"],
-    category: "Marketing Analytics",
     image: null,
     demoUrl: null,
     comingSoon: true
@@ -79,7 +70,6 @@ export function Projects() {
     description: "Mais informações em breve",
     icon: Activity,
     tags: ["Outro"],
-    category: "Data Science",
     image: null,
     demoUrl: null,
     comingSoon: true
@@ -89,18 +79,11 @@ export function Projects() {
     description: "Mais informações em breve",
     icon: BarChart3,
     tags: ["Outro"],
-    category: "Analytics",
     image: null,
     demoUrl: null,
     comingSoon: true
   }
   ]
-
-  const categories = ['Todos', 'Analytics', 'Business Intelligence', 'Marketing Analytics', 'Data Science']
-  
-  const filteredProjects = activeFilter === 'Todos' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter)
 
   return (
     <section id="projects" className="py-20">
@@ -115,26 +98,9 @@ export function Projects() {
           </p>
         </div>
 
-        {/* Filtros */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveFilter(category)}
-              className={`px-6 py-3 rounded-lg border transition-all duration-300 text-sm font-medium ${
-                activeFilter === category
-                  ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/25'
-                  : 'bg-card/50 text-muted-foreground border-border hover:border-primary/50 hover:text-foreground hover:shadow-md hover:shadow-primary/10'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <Card key={index} className="group relative overflow-hidden border bg-card/50 backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/0 before:via-primary/5 before:to-primary/0 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500">
+          {projects.map((project, index) => (
+            <Card key={index} className="group hover:shadow-xl transition-all duration-500 hover:scale-105 border-none bg-card/50 backdrop-blur-sm overflow-hidden">
               <div className="relative">
                 {project.image ? (
                   <div className="aspect-video overflow-hidden bg-muted">
